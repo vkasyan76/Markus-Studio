@@ -1,5 +1,7 @@
 import React from 'react'
 import UploadForm from './UploadForm'
+// import UploadImage_Pedro from './UploadImage_Pedro'
+// import UseStorage_youtube from '../comps/UseStorage_youtube'
 
 const Title = () => {
   return (
@@ -8,6 +10,10 @@ const Title = () => {
       <h2>Your Pictures</h2>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
       <UploadForm />
+      {/* <hr /> */}
+      {/* <UploadImage_Pedro /> */}
+      {/* <hr /> */}
+      {/* <UseStorage_youtube /> */}
     </div>
   )
 }
