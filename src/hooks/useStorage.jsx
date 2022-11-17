@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { serverTimestamp, collection, addDoc, setDoc } from 'firebase/firestore'
+import { serverTimestamp, collection, addDoc } from 'firebase/firestore'
 import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage'
 import { storage, db } from '../firebase/config'
 
@@ -36,7 +36,7 @@ const useStorage = (file) => {
 
         const url = await getDownloadURL(uploadTask.snapshot.ref)
         const createdAt = serverTimestamp()
-        addDoc(collectionRef, { url, createdAt })
+        // addDoc(collectionRef, { url, createdAt })
         // setDoc(collectionRef, { url, createdAt })
         //   .then((collectionRef) => {
         //     console.log('Document has been added successfully')
@@ -44,7 +44,9 @@ const useStorage = (file) => {
         //   .catch((error) => {
         //     console.log(error)
         //   })
-        setUrl(url)
+        // setUrl(url)
+
+        addDoc(collectionRef, { url, createdAt }).then(setUrl(url))
       },
     )
   }, [file, error])

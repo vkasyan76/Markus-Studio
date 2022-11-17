@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Title from './comps/Title'
-
+import UploadForm from './comps/UploadForm'
 
 function App() {
   return (
@@ -8,9 +8,10 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<Title />} />
-       
         </Routes>
       </Router>
+      <hr />
+      <UploadForm />
     </div>
   )
 }
