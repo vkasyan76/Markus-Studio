@@ -10,8 +10,6 @@ function App() {
           <Route path="/" element={<Title />} />
         </Routes>
       </Router>
-      <hr />
-      <UploadForm />
     </div>
   )
 }

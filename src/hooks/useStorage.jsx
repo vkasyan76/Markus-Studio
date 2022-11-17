@@ -17,38 +17,28 @@ const useStorage = (file) => {
 
     const uploadTask = uploadBytesResumable(storageRef, file)
 
-    uploadTask.on(
+    var unsubscribe = uploadTask.on(
       'state_changed',
       (snapshot) => {
         const prog = Math.round(
           (snapshot.bytesTransferred / snapshot.totalBytes) * 100,
         )
-        // let prog = (snapshot.bytesTransferred / snapshot.totalBytes) * 100
 
         setProgress(prog)
       },
       (err) => {
         setError(error)
       },
-      // console.log(err)
       async () => {
-        // getDownloadURL(uploadTask.snapshot.ref).then((url) => console.log(url))
-
         const url = await getDownloadURL(uploadTask.snapshot.ref)
         const createdAt = serverTimestamp()
-        // addDoc(collectionRef, { url, createdAt })
-        // setDoc(collectionRef, { url, createdAt })
-        //   .then((collectionRef) => {
-        //     console.log('Document has been added successfully')
-        //   })
-        //   .catch((error) => {
-        //     console.log(error)
-        //   })
-        // setUrl(url)
 
         addDoc(collectionRef, { url, createdAt }).then(setUrl(url))
       },
     )
+    // Use the returned function to remove callbacks.
+    // https://firebase.google.com/docs/reference/node/firebase.storage.UploadTask
+    return () => unsubscribe()
   }, [file, error])
 
   return { progress, url, error }
