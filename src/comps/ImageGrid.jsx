@@ -1,5 +1,6 @@
 import { useFirestore } from '../hooks/useFirestore'
 import { useState } from 'react'
+import { motion } from 'framer-motion'
 import { Modal } from './Modal'
 
 export const ImageGrid = () => {
@@ -13,13 +14,22 @@ export const ImageGrid = () => {
       <div className="gallery-grid">
         {docs &&
           docs.map((doc) => (
-            <div
+            <motion.div
               className="gallery-frame"
               key={doc.id}
+              layout
+              whileHover={{ opacity: 1 }}
               onClick={() => setSelectedImg(doc.url)}
             >
-              <img className="gallery-img" src={doc.url} alt="uploaded pick" />
-            </div>
+              <motion.img
+                className="gallery-img"
+                src={doc.url}
+                alt="uploaded pick"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 1 }}
+              />
+            </motion.div>
           ))}
       </div>
       {selectedImg && (
