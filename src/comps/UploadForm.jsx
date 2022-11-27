@@ -1,5 +1,7 @@
 import { useState } from 'react'
 import ProgressBar from './ProgressBar'
+import { Link } from 'react-router-dom'
+import { FaHome } from 'react-icons/fa'
 
 const UploadForm = () => {
   const [file, setFile] = useState(null)
@@ -21,14 +23,21 @@ const UploadForm = () => {
   }
 
   return (
-    <form>
-      <input type="file" onChange={changeHandler} />
-      <div className="output">
-        {error && <div className="error">{error}</div>}
-        {file && <div>{file.name}</div>}
-        {file && <ProgressBar file={file} setFile={setFile} />}
-      </div>
-    </form>
+    <>
+      {' '}
+      <form>
+        <input type="file" onChange={changeHandler} />
+        <div className="output">
+          {error && <div className="error">{error}</div>}
+          {file && <div>{file.name}</div>}
+          {file && <ProgressBar file={file} setFile={setFile} />}
+        </div>
+      </form>
+      <Link to="/" className="btn btn-primary btn-lg">
+        <FaHome className="mr-2" />
+        Back to Home
+      </Link>
+    </>
   )
 }
 
