@@ -21,7 +21,7 @@ const Header = ({ title }) => {
           </Link>
         </div>
         <div className="flex-1 px-2 mx-2">
-          <flex className="flex justify-end">
+          <div className="flex justify-end">
             <Link to="/" className="btn btn-ghost btn-sm rounded-btn">
               <FaHome className="mr-1" /> Home
             </Link>
@@ -38,7 +38,7 @@ const Header = ({ title }) => {
             <Link to="/profile" className="btn btn-ghost btn-sm rounded-btn">
               <FaUser className="mr-1" /> Profile
             </Link>
-          </flex>
+          </div>
         </div>
       </div>
     </nav>
