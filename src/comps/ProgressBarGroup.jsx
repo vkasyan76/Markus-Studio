@@ -2,8 +2,8 @@ import { useEffect } from 'react'
 import { motion } from 'framer-motion'
 import useStorageGroup from '../hooks/useStorageGroup'
 
-const ProgressBarGroup = ({ file, setFile, Event, Location }) => {
-  const { url, progress } = useStorageGroup(file, Event, Location)
+const ProgressBarGroup = ({ file, setFile, Description, Location }) => {
+  const { url, progress } = useStorageGroup(file, Description, Location)
   // console.log(progress, url)
 
   useEffect(() => {

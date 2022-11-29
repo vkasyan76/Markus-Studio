@@ -9,7 +9,7 @@ const UploadFormGroup = () => {
   const [file, setFile] = useState(null)
   const [error, setError] = useState(null)
 
-  const [Event, setEvent] = useState('')
+  const [Description, setDescription] = useState('')
   const [Location, setLocation] = useState('')
 
   const types = ['image/png', 'image/jpeg', 'image/heic', 'image/jpg']
@@ -30,7 +30,7 @@ const UploadFormGroup = () => {
   const handleSubmit = async (e) => {
     const ref = collection(db, 'images')
     e.preventDefault()
-    console.log(Event)
+    console.log(Description)
     console.log(Location)
     // await addDoc(ref, {
     //   event: setNewEvent,
@@ -44,16 +44,16 @@ const UploadFormGroup = () => {
         <input
           type="text"
           className="w-full p-6 mb-3 border border-gray-300 rounded-md placeholder:font-sans placeholder:font-light"
-          placeholder="Enter Event"
+          placeholder="Description"
           required
-          onChange={(e) => setEvent(e.target.value)}
-          value={Event}
+          onChange={(e) => setDescription(e.target.value)}
+          value={Description}
         />
 
         <input
           type="text"
           className="w-full p-6 mb-3 border border-gray-300 rounded-md placeholder:font-sans placeholder:font-light"
-          placeholder="Enter Location"
+          placeholder="Location"
           required
           onChange={(e) => setLocation(e.target.value)}
           value={Location}
@@ -66,7 +66,7 @@ const UploadFormGroup = () => {
           {file && (
             <ProgressBarGroup
               file={file}
-              Event={Event}
+              Description={Description}
               Location={Location}
               setFile={setFile}
             />

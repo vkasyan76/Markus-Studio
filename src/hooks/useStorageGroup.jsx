@@ -3,7 +3,7 @@ import { serverTimestamp, collection, addDoc } from 'firebase/firestore'
 import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage'
 import { storage, db } from '../firebase/config'
 
-const useStorageGroup = (file, Event, Location) => {
+const useStorageGroup = (file, Description, Location) => {
   const [progress, setProgress] = useState(0)
   const [error, setError] = useState(null)
   const [url, setUrl] = useState(null)
@@ -33,7 +33,7 @@ const useStorageGroup = (file, Event, Location) => {
         const url = await getDownloadURL(uploadTask.snapshot.ref)
         const createdAt = serverTimestamp()
 
-        addDoc(collectionRef, { url, createdAt, Event, Location }).then(
+        addDoc(collectionRef, { url, createdAt, Description, Location }).then(
           setUrl(url),
         )
       },
