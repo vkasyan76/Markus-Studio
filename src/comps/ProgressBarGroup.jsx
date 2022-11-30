@@ -2,13 +2,28 @@ import { useEffect } from 'react'
 import { motion } from 'framer-motion'
 import useStorageGroup from '../hooks/useStorageGroup'
 
-const ProgressBarGroup = ({ file, setFile, Description, Location }) => {
-  const { url, progress } = useStorageGroup(file, Description, Location)
+const ProgressBarGroup = ({
+  file,
+  setFile,
+  Description,
+  Location,
+  selectedImg,
+  setSelectedImg,
+  docs,
+}) => {
+  const { url, progress } = useStorageGroup(
+    file,
+    Description,
+    Location,
+    selectedImg,
+  )
   // console.log(progress, url)
 
   useEffect(() => {
     if (url) {
       setFile(null)
+      // Selected Image:
+      // setSelectedImg(docs[0].url)
     } // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [url])
 
