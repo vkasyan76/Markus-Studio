@@ -1,15 +1,18 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import ProgressBarGroup from './ProgressBarGroup'
 import { Link } from 'react-router-dom'
 import { FaHome } from 'react-icons/fa'
-import { db } from '../firebase/config'
-import { collection, addDoc } from 'firebase/firestore'
+// import { GrPowerReset } from 'react-icons/gr'
+// import { db } from '../firebase/config'
+// import { collection } from 'firebase/firestore'
 import image from '../images/image.jpg'
 
-import { useFirestoreLastItem } from '../hooks/useFirestoreLastItem'
+// import { useFirestoreLastItem } from '../hooks/useFirestoreLastItem'
+import reset from '../images/reset.svg'
 
 const UploadFormGroupForm = () => {
   const [selected, setSelected] = useState(null)
+  const [imageTarget, setImageTarget] = useState(null)
   const [file, setFile] = useState(null)
   const [error, setError] = useState(null)
 
@@ -20,11 +23,8 @@ const UploadFormGroupForm = () => {
 
   // For showing last image:
 
-  const { docs } = useFirestoreLastItem('images')
-  const [selectedImg, setSelectedImg] = useState(null)
-  // useEffect(() => {
-  //   setSelectedImg(docs[0].url)
-  // }, docs)
+  // const { docs } = useFirestoreLastItem('images')
+  // const [selectedImg, setSelectedImg] = useState(null)
 
   // const changeHandler = (e) => {
   //   // console.log('changed')
@@ -40,7 +40,6 @@ const UploadFormGroupForm = () => {
   // }
 
   const handleSubmit = async (e) => {
-    const ref = collection(db, 'images')
     e.preventDefault()
     // console.log(Description)
     // console.log(Location)
@@ -49,11 +48,25 @@ const UploadFormGroupForm = () => {
     if (selected && types.includes(selected.type)) {
       setFile(selected)
       setError('')
-      setSelectedImg(docs[0].url)
+      console.log(selected)
+      setImageTarget(URL.createObjectURL(selected))
+      // image from Firebase:
+      // setSelectedImg(docs[0].url)
     } else {
       setFile(null)
       setError('Select a valid file type (png, jpeg, jpg')
     }
+  }
+
+  const resetHandler = (e) => {
+    setSelected(null)
+    setImageTarget(null)
+    setFile(null)
+    setError(null)
+    setDescription('')
+    setLocation('')
+    window.location.reload()
+    // console.log(Location)
   }
 
   return (
@@ -87,8 +100,22 @@ const UploadFormGroupForm = () => {
               onChange={(e) => setLocation(e.target.value)}
               value={Location}
             />
+            {/* Upload & Reset Buttons */}
+            <div className="flex flex-row justify-between">
+              <button className="btn">Upload Foto</button>
+              <button className="btn" type="button" onClick={resetHandler}>
+                <img
+                  src={reset}
+                  alt="reset"
+                  className="mr-2"
+                  onClick={resetHandler}
+                  // onClick={(e) => resetHandler}
+                />
+                Reset Form
+              </button>
+            </div>
 
-            <button className="btn">Upload Foto</button>
+            {/* <button className="btn">Upload Foto</button> */}
           </form>
 
           <div className="output">
@@ -100,9 +127,9 @@ const UploadFormGroupForm = () => {
                 Description={Description}
                 Location={Location}
                 setFile={setFile}
-                docs={docs}
-                selectedImg={selectedImg}
-                setSelectedImg={selectedImg}
+                // docs={docs}
+                // selectedImg={selectedImg}
+                // setSelectedImg={setSelectedImg}
               />
             )}
           </div>
@@ -116,11 +143,18 @@ const UploadFormGroupForm = () => {
         </div>
 
         {/* Right Side */}
-        {selectedImg ? (
-          <img src={selectedImg} alt="" className="w-[430px] hidden md:block" />
+
+        {selected ? (
+          <img src={imageTarget} alt="" className="w-[430px] hidden md:block" />
         ) : (
           <img src={image} alt="" className="w-[430px] hidden md:block" />
         )}
+
+        {/* {selectedImg ? (
+          <img src={selectedImg} alt="" className="w-[430px] hidden md:block" />
+        ) : (
+          <img src={image} alt="" className="w-[430px] hidden md:block" />
+        )} */}
         {/* <img src={image} alt="" className="w-[430px] hidden md:block" /> */}
       </div>
     </>

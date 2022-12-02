@@ -1,6 +1,6 @@
 import { useFirestore } from '../hooks/useFirestore'
 import { useState } from 'react'
-import { motion } from 'framer-motion'
+// import { motion } from 'framer-motion'
 import { Modal } from './Modal'
 import bookmark from '../images/bookmark.svg'
 
@@ -25,8 +25,8 @@ export const ImageGrid = () => {
                 <div className="absolute bottom-0 left-0 right-0 p-2 px-4 text-white duration-500 bg-black opacity-0 group-hover:opacity-100 bg-opacity-40">
                   <div className="flex justify-between w-full">
                     <div className="font-normal">
-                      <p className="text-sm">Event</p>
-                      <p className="text-xs">Location</p>
+                      <p className="text-sm">{doc.Description}</p>
+                      <p className="text-xs">{doc.Location}</p>
                     </div>
                     <div className="flex items-center">
                       <img src={bookmark} alt="bookmark" />

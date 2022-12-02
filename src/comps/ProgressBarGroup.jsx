@@ -7,15 +7,15 @@ const ProgressBarGroup = ({
   setFile,
   Description,
   Location,
-  selectedImg,
-  setSelectedImg,
-  docs,
+  // selectedImg,
+  // setSelectedImg,
+  // docs,
 }) => {
   const { url, progress } = useStorageGroup(
     file,
     Description,
     Location,
-    selectedImg,
+    // selectedImg,
   )
   // console.log(progress, url)
 
@@ -23,7 +23,11 @@ const ProgressBarGroup = ({
     if (url) {
       setFile(null)
       // Selected Image:
-      // setSelectedImg(docs[0].url)
+
+      // setTimeout(() => {
+      //   setSelectedImg(docs[0].url)
+      //   console.log(selectedImg)
+      // }, 3000)
     } // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [url])
 
