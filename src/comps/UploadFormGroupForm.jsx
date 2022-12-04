@@ -72,7 +72,7 @@ const UploadFormGroupForm = () => {
   return (
     <>
       {/* Card Container */}
-      <div className="relative flex flex-col m-6 space-y-10 bg-white shadow-2xl rounded-2xl md:flex-row md:space-y-0 md:m-0">
+      <div className="relative flex flex-col justify-between m-6 space-y-10 bg-white shadow-2xl rounded-2xl md:flex-row md:space-y-0 md:m-0">
         {/* Left Side */}
         <div className="p-6 md:p-20">
           <form onSubmit={handleSubmit}>
@@ -107,7 +107,7 @@ const UploadFormGroupForm = () => {
                 <img
                   src={reset}
                   alt="reset"
-                  className="mr-2"
+                  className="mr-1"
                   onClick={resetHandler}
                   // onClick={(e) => resetHandler}
                 />

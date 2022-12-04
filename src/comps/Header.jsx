@@ -35,8 +35,8 @@ const Header = ({ title }) => {
             <Link to="/upload" className="btn btn-ghost btn-sm rounded-btn">
               <FaUpload className="mr-1" /> Upload
             </Link>
-            <Link to="/profile" className="btn btn-ghost btn-sm rounded-btn">
-              <FaUser className="mr-1" /> Profile
+            <Link to="/login" className="btn btn-ghost btn-sm rounded-btn">
+              <FaUser className="mr-1" /> Login
             </Link>
           </div>
         </div>
