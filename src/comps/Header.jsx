@@ -7,10 +7,13 @@ import {
   FaSearch,
   FaEye,
   FaLock,
+  FaLockOpen,
 } from 'react-icons/fa'
 import PropTypes from 'prop-types'
+import { useLogout } from '../hooks/useLogout'
 
 const Header = ({ title }) => {
+  const { logout } = useLogout()
   return (
     <nav className="navbar mb-12 shadow-lg bg-neutral text-neutral-content">
       <div className="container mx-auto">
@@ -35,9 +38,15 @@ const Header = ({ title }) => {
             <Link to="/upload" className="btn btn-ghost btn-sm rounded-btn">
               <FaUpload className="mr-1" /> Upload
             </Link>
-            <Link to="/login" className="btn btn-ghost btn-sm rounded-btn">
-              <FaUser className="mr-1" /> Login
+            <Link to="/signup" className="btn btn-ghost btn-sm rounded-btn">
+              <FaUser className="mr-1" /> Signup
             </Link>
+            <Link to="/login" className="btn btn-ghost btn-sm rounded-btn">
+              <FaLock className="mr-1" /> Login
+            </Link>
+            <li className="btn btn-ghost btn-sm rounded-btn" onClick={logout}>
+              <FaLockOpen className="mr-1" /> Logout
+            </li>
           </div>
         </div>
       </div>

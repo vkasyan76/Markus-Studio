@@ -6,6 +6,7 @@ import Footer from './comps/Footer'
 import Login from './pages/Login'
 import Search from './pages/Search'
 import Gallery from './pages/Gallery'
+import Signup from './pages/Signup'
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
             <Route path="/" element={<Title />} />
             <Route path="/upload" element={<UploadFormGroupForm />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Signup />} />
             <Route path="/search" element={<Search />} />
             <Route path="/gallery" element={<Gallery />} />
           </Routes>
