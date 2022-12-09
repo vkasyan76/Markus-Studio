@@ -7,6 +7,7 @@ import Login from './pages/Login'
 import Search from './pages/Search'
 import Gallery from './pages/Gallery'
 import Signup from './pages/Signup'
+import Test_Header from './comps/Test_Header'
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <div className="flex flex-col justify-between h-screen">
         {/* flex flex-col justify-between h-screen */}
         <Header />
+        {/* <Test_Header /> */}
         <main className="container mx-auto px-3 pb-12">
           <Routes>
             <Route path="/" element={<Title />} />
