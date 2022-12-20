@@ -12,14 +12,15 @@ import {
 } from 'react-icons/fa'
 import PropTypes from 'prop-types'
 import { useLogout } from '../hooks/useLogout'
-import { HamburgerMenu } from './HamburgerMenu'
+// import { HamburgerMenu } from './HamburgerMenu'
 
 const Header = ({ title }) => {
   const { logout } = useLogout()
   const [menuOpen, setMenuOpen] = useState(false)
 
   return (
-    <div className="container max-w-6xl mx-auto">
+    <div className="container mx-auto">
+      {/* max-w-6xl */}
       {/* container mx-auto justify-between flex flex-row */}
       <nav className="navbar mb-12 shadow-lg bg-neutral text-neutral-content justify-between flex items-center">
         <div className="flex-none px-2 mx-2">
@@ -77,14 +78,6 @@ const Header = ({ title }) => {
           <button
             id="menu-btn"
             type="button"
-            // className="open z-40 block hamburger md:hidden focus:outline-none"
-            // className={`z-40 block hamburger md:hidden focus:outline-none ${
-            //   menuOpen ? 'open' : ''
-            // }`}
-            // onClick={() => {
-            //   setMenuOpen(true)
-            // }}
-
             className={`z-40 block hamburger md:hidden focus:outline-none ${
               menuOpen ? '' : 'open'
             }`}
@@ -144,23 +137,3 @@ Header.propTypes = {
 export default Header
 
 // import { Navbar, Nav, Container, NavDropdown } from 'react-bootstrap'
-
-{
-  /* <header>
-<Navbar bg="dark" variant="dark" expand="lg" collapseOnSelect>
-  <Container>
-    <Link to="/">
-      <Navbar.Brand>Firegram</Navbar.Brand>
-    </Link>
-    <Navbar.Toggle aria-controls="basic-navbar-nav" />
-    <Navbar.Collapse id="basic-navbar-nav">
-      <Nav className="ml-auto">
-        <Nav.Link as={Link} to="/">
-          <FaUser /> Login
-        </Nav.Link>
-      </Nav>
-    </Navbar.Collapse>
-  </Container>
-</Navbar>
-</header> */
-}

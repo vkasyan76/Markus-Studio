@@ -7,14 +7,18 @@ import Login from './pages/Login'
 import Search from './pages/Search'
 import Gallery from './pages/Gallery'
 import Signup from './pages/Signup'
+import NavBar from './comps/NavBar/NavBar'
 import Test_Header from './comps/Test_Header'
+import { HamburgerMenu } from './comps/HamburgerMenu'
 
 function App() {
   return (
     <Router>
       <div className="flex flex-col justify-between h-screen">
+        <NavBar />
         {/* flex flex-col justify-between h-screen */}
-        <Header />
+        {/* <Header /> */}
+        {/* <HamburgerMenu /> */}
         {/* <Test_Header /> */}
         <main className="container mx-auto px-3 pb-12">
           <Routes>
