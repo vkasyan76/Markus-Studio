@@ -18,9 +18,6 @@ const Navigation = ({ title }) => {
     </div>
   )
 }
-
-// md:justify-end
-
 Navigation.defaultProps = {
   title: 'Markus Studio',
 }
