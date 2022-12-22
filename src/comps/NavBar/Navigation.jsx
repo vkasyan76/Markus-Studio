@@ -14,7 +14,7 @@ const Navigation = ({ title }) => {
         </Link>
       </div>
       <SearchBox />
-      <nav className="hidden flex-1 px-2 mx-2 md:flex md:space-x-0.1 md:absolute md:right-0">
+      <nav className="hidden flex-1 px-2 mx-2 md:flex md:space-x-0.1 md:absolute md:right-0 md: overflow-x-clip">
         <NavLinks />
       </nav>
     </div>

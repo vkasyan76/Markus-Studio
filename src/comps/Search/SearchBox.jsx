@@ -11,10 +11,11 @@ const SearchBox = () => {
     console.log(keyword)
     if (keyword.trim()) {
       // navigate(`/search/${keyword}`)
-      navigate(`/search?location=/${keyword}`)
+      navigate(`/search?keyword=${keyword}`)
       e.target.reset()
+      setKeyword('')
     } else {
-      navigate('/search')
+      navigate('/')
     }
   }
 

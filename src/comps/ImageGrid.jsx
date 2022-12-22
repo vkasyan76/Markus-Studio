@@ -7,9 +7,7 @@ import bookmark from '../images/bookmark.svg'
 export const ImageGrid = () => {
   const { docs } = useFirestore('images')
   // console.log(docs)
-
   const [selectedImg, setSelectedImg] = useState(null)
-
   return (
     <>
       <div className="flex items-center justify-center min-h-screen bg-cyan-50">
