@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import { db } from '../firebase/config'
 import {
   collection,
@@ -8,18 +8,18 @@ import {
   where,
 } from 'firebase/firestore'
 
-export const useFirestoreSearch = (c, d) => {
-  const [docs, setDocs] = useState([])
+export const useFirestoreSearch = (c, _q) => {
+  const [docs, setDocs] = useState(null)
+
+  // set up query
+  const q = useRef(_q).current
 
   useEffect(() => {
-    const collectionRef = collection(db, 'images')
+    let ref = collection(db, c)
 
-    const ref = query(
-      collectionRef,
-      where('Location', '==', 'Berlin'),
-      // orderBy('createdAt', 'desc'),
-      // orderBy('Location'),
-    )
+    if (q) {
+      ref = query(ref, where(...q))
+    }
 
     const unsub = onSnapshot(ref, (snapshot) => {
       let results = []
@@ -30,7 +30,7 @@ export const useFirestoreSearch = (c, d) => {
     })
 
     return () => unsub()
-  }, [c, d])
+  }, [c, q])
 
   return { docs }
 }

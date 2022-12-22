@@ -9,10 +9,7 @@ import bookmark from '../images/bookmark.svg'
 // import SearchBox from '../comps/Search/SearchBox'
 
 const Search = () => {
-  const { docs } = useFirestoreSearch('images')
   const [selectedImg, setSelectedImg] = useState(null)
-
-  const [data, setData] = useState({})
 
   const useQuery = () => {
     return new URLSearchParams(useLocation().search)
@@ -22,11 +19,7 @@ const Search = () => {
   let search = query.get('keyword')
   console.log(search)
 
-  // useEffect(() => {
-  //   searchData()
-  // }, [search])
-
-  // const searchData = () => {}
+  const { docs } = useFirestoreSearch('images', ['Location', '==', search])
 
   return (
     <>
