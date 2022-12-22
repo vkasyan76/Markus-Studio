@@ -2,6 +2,7 @@ import NavLinks from './NavLinks'
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import { FaCameraRetro } from 'react-icons/fa'
+import SearchBox from '../Search/SearchBox'
 
 const Navigation = ({ title }) => {
   return (
@@ -12,6 +13,7 @@ const Navigation = ({ title }) => {
           {title}
         </Link>
       </div>
+      <SearchBox />
       <nav className="hidden flex-1 px-2 mx-2 md:flex md:space-x-0.1 md:absolute md:right-0">
         <NavLinks />
       </nav>

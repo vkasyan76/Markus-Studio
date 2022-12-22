@@ -8,8 +8,6 @@ import Search from './pages/Search'
 import Gallery from './pages/Gallery'
 import Signup from './pages/Signup'
 import NavBar from './comps/NavBar/NavBar'
-import Test_Header from './comps/Test_Header'
-import { HamburgerMenu } from './comps/HamburgerMenu'
 
 function App() {
   return (
@@ -18,8 +16,6 @@ function App() {
         <NavBar />
         {/* flex flex-col justify-between h-screen */}
         {/* <Header /> */}
-        {/* <HamburgerMenu /> */}
-        {/* <Test_Header /> */}
         <main className="container mx-auto px-3 pb-12">
           <Routes>
             <Route path="/" element={<Title />} />
@@ -28,6 +24,7 @@ function App() {
             <Route path="/signup" element={<Signup />} />
             <Route path="/search" element={<Search />} />
             <Route path="/gallery" element={<Gallery />} />
+            {/* <Route path="/search/:keyword" element={<Title />} exact /> */}
           </Routes>
         </main>
         <Footer />
