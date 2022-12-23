@@ -14,6 +14,7 @@ const SearchBox = () => {
       navigate(`/search?keyword=${keyword}`)
       e.target.reset()
       setKeyword('')
+      // reload the page to use search again:
       window.location.reload(false)
     } else {
       navigate('/')
@@ -25,7 +26,7 @@ const SearchBox = () => {
       <div className="p-2 mb-5 mt-5"></div>
       <input
         className="w-40 text-black border border-gray-300 rounded-l-md placeholder:font-sans placeholder:font-light"
-        placeholder="Search..."
+        placeholder="Location..."
         required
         type="text"
         onChange={(e) => setKeyword(e.target.value)}

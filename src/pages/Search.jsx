@@ -21,6 +21,12 @@ const Search = () => {
 
   const { docs } = useFirestoreSearch('images', ['Location', '==', search])
 
+  // const { docs } =
+  //   useFirestoreSearch('images', ['Location', '==', search]) ||
+  //   useFirestoreSearch('images', ['Description', '==', search])
+
+  // ('Description', '==', search),
+
   return (
     <>
       <div className="flex items-center justify-center min-h-screen bg-cyan-50">

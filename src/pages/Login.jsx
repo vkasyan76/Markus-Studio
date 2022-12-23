@@ -20,8 +20,8 @@ const Login = () => {
   }
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-rose-50">
-      <div className="relative flex flex-col justify-between m-6 space-y-10 bg-white shadow-2xl rounded-2xl md:flex-row md:space-y-0 md:m-0">
+    <div className="flex items-center justify-center min-h-screen">
+      <div className="relative flex flex-col justify-between m-6 space-y-10 bg-cyan-50 shadow-2xl rounded-2xl md:flex-row md:space-y-0 md:m-0">
         {/* Left Side */}
         <div className="p-6 md:p-20">
           {/* Top Content */}
@@ -32,7 +32,7 @@ const Login = () => {
             Log In
           </h2>
           <p className="max-w-sm mb-12 font-sans font-light text-gray-600">
-            Log in to your account.
+            Log in to your account
           </p>
           <form onSubmit={handleSubmit}>
             <input
@@ -88,7 +88,7 @@ const Login = () => {
           </div>
         </div>
         {/* Right Side */}
-        <img src={image} alt="" className="w-[430px] hidden md:block" />
+        <img src={image} alt="" className="w-[400px] hidden md:block" />
         {/* Close Button */}
         <div className="group absolute -top-5 right-4 flex items-center justify-center w-7 h-7 bg-gray-200 rounded-full md:bg-white md:top-4 hover:cursor-pointer hover:-translate-y-0.5 transition duration-150">
           <img src={close} alt="" />
