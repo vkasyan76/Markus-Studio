@@ -14,6 +14,7 @@ const SearchBox = () => {
       navigate(`/search?keyword=${keyword}`)
       e.target.reset()
       setKeyword('')
+      window.location.reload(false)
     } else {
       navigate('/')
     }

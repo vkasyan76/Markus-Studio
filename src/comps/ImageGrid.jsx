@@ -24,7 +24,7 @@ export const ImageGrid = () => {
                   <div className="flex justify-between w-full">
                     <div className="font-normal">
                       <p className="text-sm">{doc.Description}</p>
-                      <p className="text-xs">{doc.Location}</p>
+                      <p className="text-sm">{doc.Location}</p>
                     </div>
                     <div className="flex items-center">
                       <img src={bookmark} alt="bookmark" />

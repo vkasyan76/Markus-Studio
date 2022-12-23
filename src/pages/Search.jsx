@@ -15,8 +15,8 @@ const Search = () => {
     return new URLSearchParams(useLocation().search)
   }
 
-  let query = useQuery()
-  let search = query.get('keyword')
+  const query = useQuery()
+  const search = query.get('keyword')
   console.log(search)
 
   const { docs } = useFirestoreSearch('images', ['Location', '==', search])
